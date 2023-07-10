@@ -64,6 +64,7 @@ public class myDio extends JDialog{
 		
 		OKButton.addActionListener(e->{
 			accepted=true;
+			//关闭对话框
 			setVisible(false);
 		});
 		
@@ -77,6 +78,7 @@ public class myDio extends JDialog{
 	
 	public boolean exec() {
 		this.setTitle("参数设置");
+		//true 为模态窗口  即对话框弹出后，不能操作主窗口（阻塞），当对话框操作完成后才放行
 		this.setModal(true);
 		this.setSize(350,350);
 		DioLocation();
