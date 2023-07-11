@@ -6,7 +6,7 @@ import javax.swing.JFrame;
 
 
 /**
- * 绘制正弦曲线，并通过右键菜单修改其参数!
+ * 绘制正弦曲线，并通过右键菜单修改参数
  * @author ZW
  *
  */
