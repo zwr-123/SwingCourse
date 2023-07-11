@@ -5,6 +5,11 @@ import java.awt.Rectangle;
 import java.awt.Toolkit;
 import java.awt.Window;
 
+/**
+ * 工具类
+ * @author ZW
+ *
+ */
 public class Location {
 	
 	
