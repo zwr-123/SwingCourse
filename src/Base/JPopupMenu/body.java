@@ -4,7 +4,7 @@ import javax.swing.JFrame;
 
 
 /**
- * 菜单选项功能
+ * 右键弹出菜单
  * @author ZW
  *
  */
