@@ -16,27 +16,43 @@ import javax.swing.JPanel;
 import javax.swing.ListCellRenderer;
 import javax.swing.SwingConstants;
 
+/**
+ * 这个类只是个渲染器，绘制出控件的样子，但不添加任何或返回任何实质的有功能的控件
+ * 譬如：可以再返回一个button，但button没有点击功能
+ * @author ZW
+ *
+ */
 public class MyJListCellRenderer  implements ListCellRenderer{
 	JPanel root = new JPanel();
 	JLabel jlabel=new JLabel();
 	pictureView picV=new pictureView();
+	pictureView picV2=new pictureView();
 	private Image iconMale,iconFemale;
+	private Image iconSelected,iconUnselected;
 	
 	public MyJListCellRenderer() {
 		super();
 		/**
-		 * 先加载图片，不能写在getListCellRendererComponent()里，因为会多次执行
+		 * 先加载图片，不能写在getListCellRendererComponent()里，因为会多次执行，性能浪费
 		 */
 		iconMale=load("/Base/Jlist/男.jpg");
 		iconFemale=load("/Base/Jlist/女.png");
+		iconSelected=load("/Base/Jlist/选中.jpeg");
+		iconUnselected=load("/Base/Jlist/未选中.jpeg");
 		
 		root.setLayout(new FlowLayout(FlowLayout.LEFT));
-		root.add(picV);
-		picV.setPreferredSize(new Dimension(30, 20));
-		root.add(jlabel);
-		//使这俩组件的颜色与Jlist一致
 		root.setBackground(Color.white);
+		root.add(picV);
+		root.add(jlabel);
+		root.add(picV2);
+		
 		picV.setBackground(Color.white);
+		picV.setPreferredSize(new Dimension(30, 20));
+		picV2.setPreferredSize(new Dimension(30, 20));
+		//初始显示 未选中状态图片
+		picV2.setimage(iconUnselected);
+		picV2.setBackground(Color.white);
+		
 	}
 
 	//加载图片。此处的路径  /表示从类路径下获取，不带斜杠表示从当前类的路径下获取
@@ -84,9 +100,11 @@ public class MyJListCellRenderer  implements ListCellRenderer{
 			//显示list的默认高亮颜色
 			jlabel.setBackground(list.getSelectionBackground());
 			jlabel.setForeground(list.getSelectionForeground());
+			picV2.setimage(iconSelected);
 		}else {
 			jlabel.setBackground(list.getBackground());
 			jlabel.setForeground(list.getForeground());
+			picV2.setimage(iconUnselected);
 		}
 		
 		//根据性别显示图片   此处的picV.setimage 写在构造方法里没用
