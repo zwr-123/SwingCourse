@@ -11,9 +11,8 @@ import java.util.Iterator;
 import java.util.List;
 
 
-/* 横向布局器，和 AfXLayout 等效 
- * 
- */
+/* Swing入门篇 7.4节  ( 并在 7.5 节最终优化 )*/ 
+
 public class MyRowLayout implements LayoutManager2
 {
 	private List<Item> items = new ArrayList<>();

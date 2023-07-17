@@ -4,16 +4,21 @@ import java.awt.Component;
 import java.awt.Container;
 import java.awt.Dimension;
 import java.awt.Insets;
+import java.awt.LayoutManager;
 import java.awt.LayoutManager2;
 import java.awt.Rectangle;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
+import javax.swing.JPanel;
 
-/* 纵向布局器，和 AfYLayout 等效 
- * 
+/* Swing入门篇 7.5 节 */
+
+/* ChangeLog
+ * 2019-01-23: 修改bug, int validSize = rect.height ..里的width变成height
  */
+
 public class MyColumnLayout implements LayoutManager2
 {
 	private List<Item> items = new ArrayList<>();

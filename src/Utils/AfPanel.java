@@ -1,29 +1,21 @@
 package Utils;
 
-import java.awt.Color;
 import java.awt.Dimension;
-import java.awt.Graphics;
-import java.awt.Graphics2D;
+import java.awt.LayoutManager;
 
-import javax.swing.JComponent;
 import javax.swing.JPanel;
-import javax.swing.border.Border;
 
 
-/** AfPanel: 用于快速布局的一个容器
- * 就是把Jpanel的原生方法内部封装了，然后支持链式调用
- * 
- */
+/* Swing入门篇 7.5 节 */
 
 public class AfPanel extends JPanel
 {
-	private Color bgColor;
-
-	public AfPanel()
+	public AfPanel layout( LayoutManager manager)
 	{
-		this.setOpaque(false); // 默认背景透明 
+		this.setLayout(manager);
+		return this;
 	}
-		
+	
 	///////////// padding /////////////
 	public AfPanel padding( int size)
 	{
@@ -47,17 +39,32 @@ public class AfPanel extends JPanel
 		MyBorder.addMargin(this, top,left, bottom,right);
 		return this;
 	}
-
-	// 附加一个外边框
-	public void addOuterBorder(JComponent c, Border outerBorder)
+	
+	//////////// max size ///////////
+	public AfPanel maxSize(int w, int h)
 	{
-		MyBorder.addOuterBorder(this, outerBorder);
+		this.setMaximumSize(new Dimension(w, h));
+		return this;
 	}
-
-	// 附加一个内边框
-	public void addInnerBorder(JComponent c, Border innerBorder)
+	
+	public AfPanel maxWidth(int w)
 	{
-		MyBorder.addInnerBorder(this, innerBorder);
+		Dimension size = this.getMaximumSize();
+		if(size == null)
+			size = new Dimension(0,0);
+		size.width = w;
+		this.setMaximumSize( size);
+		return this;
+	}
+	
+	public AfPanel maxHeight(int h)
+	{
+		Dimension size = this.getMaximumSize();
+		if(size == null)
+			size = new Dimension(0,0);
+		size.height = h;
+		this.setMaximumSize( size);
+		return this;
 	}
 	
 	//////////// perferred size ///////////
@@ -86,25 +93,32 @@ public class AfPanel extends JPanel
 		this.setPreferredSize( size);
 		return this;
 	}
-	
-	public void setBgColor(Color color)
+
+	//////////// min size ///////////
+	public AfPanel minSize(int w, int h)
 	{
-		this.bgColor = color;
-		this.repaint();
+		this.setMinimumSize(new Dimension(w, h));
+		return this;
 	}
 	
-	// 背景色绘制 ( 参考 Swing入门篇 第9章 )
-	protected void paintComponent(Graphics g)
+	public AfPanel minWidth(int w)
 	{
-		super.paintComponent(g);
-		
-		// 绘制背景色
-		if( bgColor != null)
-		{
-			Graphics2D g2d = (Graphics2D)g;	
-			g2d.setPaint(bgColor);
-			g2d.fillRect(0, 0, getWidth(), getHeight());
-		}	
+		Dimension size = this.getMinimumSize();
+		if(size == null)
+			size = new Dimension(0,0);
+		size.width = w;
+		this.setMinimumSize( size);
+		return this;
+	}
+	
+	public AfPanel minHeight(int h)
+	{
+		Dimension size = this.getMinimumSize();
+		if(size == null)
+			size = new Dimension(0,0);
+		size.height = h;
+		this.setMinimumSize( size);
+		return this;
 	}
 	
 }

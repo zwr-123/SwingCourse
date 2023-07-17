@@ -1,70 +1,68 @@
 package Utils;
 
+import java.awt.Color;
+
 import javax.swing.BorderFactory;
+import javax.swing.Box;
 import javax.swing.JComponent;
 import javax.swing.border.Border;
 
-/** AfBorder: 用于快速设置边框和边距
- * 
- *  要求：自己也能写出来这个工具类
- */
+/* Swing入门篇 6.3 节 */
+
 public class MyBorder
 {
-	// 设置内间距
+	// 设置填充
 	public static void addPadding(JComponent c, int size)
 	{
 		addPadding(c, size, size, size, size);
 	}
 	
-	// 设置内间距
+	// 设置填充
 	public static void addPadding(JComponent c, int top, int left, int bottom, int right)
 	{
 		Border border = BorderFactory.createEmptyBorder(top, left, bottom, right);
-		addInnerBorder(c, border);
+		Border oldBorder = c.getBorder();
+		if(oldBorder != null)
+		{
+			// padding 在 border内层
+			border = BorderFactory.createCompoundBorder(oldBorder, border);
+		}
+		c.setBorder(border);
 	}
 	
-	// 设置外间距
+	// 设置间距
 	public static void addMargin(JComponent c, int size)
 	{
 		addMargin(c, size, size, size, size);
 	}
 	
-	// 设置外间距
+	// 设置间距
 	public static void addMargin(JComponent c, int top, int left, int bottom, int right)
 	{
 		Border border = BorderFactory.createEmptyBorder(top, left, bottom, right);
-		addOuterBorder(c, border);
+		Border oldBorder = c.getBorder();
+		if(oldBorder != null)
+		{
+			// margin在外层
+			border = BorderFactory.createCompoundBorder(border, oldBorder);
+		}
+		c.setBorder(border);
 	}
 	
-	// 附加一个外边框
-	public static void addOuterBorder(JComponent c, Border outerBorder)
+	// 把标准控件包在一个Box里, 然后给Box设置一个边距
+	public static JComponent wrap(JComponent c, int gap)
 	{
-		Border border = c.getBorder();
-		if(border != null)
-		{
-			// 如果原来有一个边框，则进行复合
-			border = BorderFactory.createCompoundBorder(outerBorder,border);
-			c.setBorder( border );
-		}
-		else
-		{
-			c.setBorder(outerBorder);
-		}
+		return wrap(c, gap,gap, gap, gap);
 	}
-
-	// 附加一个内边框
-	public static void addInnerBorder(JComponent c, Border innerBorder)
+	
+	public static JComponent wrap(JComponent c, int top, int left, int bottom, int right)
 	{
-		Border border = c.getBorder();
-		if(border != null)
-		{
-			// 如果原来有一个边框，则进行复合
-			border = BorderFactory.createCompoundBorder(border, innerBorder);
-			c.setBorder( border );
-		}
-		else
-		{
-			c.setBorder(innerBorder);
-		}
+		Box box = Box.createHorizontalBox();
+		box.setOpaque(true);
+		box.setBackground(Color.YELLOW);
+		box.add(c);
+		Border border = BorderFactory.createEmptyBorder(top, left, bottom, right);
+		box.setBorder(border);
+		return box;
 	}
 }

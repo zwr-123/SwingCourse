@@ -9,6 +9,10 @@ import javax.swing.JPanel;
 
 /* Swing入门篇 10.4节 */
 
+/*
+ * 2019-01-27: 最后优化，主要是支持透明的PNG的绘制
+ */
+
 public class AfImageView extends JPanel
 {
 	// 缩放类型 (也可以用枚举语法 Enum 来定义)
@@ -19,6 +23,11 @@ public class AfImageView extends JPanel
 	private Image image;
 	private int scaleType = FIT_CENTER;
 	private Color bgColor = Color.WHITE; // 背景色
+	
+	public AfImageView()
+	{
+		this.setOpaque(false);
+	}
 	
 	public Image getImage()
 	{
@@ -65,7 +74,7 @@ public class AfImageView extends JPanel
 		int height = this.getHeight();
 
 		// 清除显示
-		g.clearRect(0, 0, width, height);
+		//g.clearRect(0, 0, width, height);
 		
 		// 背景色
 		g.setColor(bgColor);
