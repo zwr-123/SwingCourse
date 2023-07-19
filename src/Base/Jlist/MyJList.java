@@ -38,7 +38,7 @@ public class MyJList<E> extends JList<E>{
 
 		
 
-		// 给JList 添加自定义鼠标监听器
+		// 给JList 添加自定义鼠标监听器--点击后选中此行
 		this.addMouseListener(new MouseAdapter() {
 
 			@Override
