@@ -39,9 +39,9 @@ public class MyFrame extends JFrame
 		root.add(toolbar, BorderLayout.PAGE_START);
 		
 		// 添加按钮
-		JButton openButton = createButton("/Base/IconBox/ic_open.png");
-		JButton saveButton = createButton("/Base/IconBox/ic_save.png");
-		JButton printButton = createButton("/Base/IconBox/ic_print.png");
+		JButton openButton = createButton("/Base/IconButton/ic_open.png");
+		JButton saveButton = createButton("/Base/IconButton/ic_save.png");
+		JButton printButton = createButton("/Base/IconButton/ic_print.png");
 		toolbar.add(openButton);
 		toolbar.add(saveButton);
 		toolbar.add(printButton);
