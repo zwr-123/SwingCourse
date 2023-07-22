@@ -16,8 +16,8 @@ class body {
 //		myFrame.setContentPane(new myJpanel2());	四种填充
 //		myFrame.setContentPane(new myJpanel3());	截取部分图片显示	
 //		myFrame.setContentPane(new myJpanel4());    绘制彩色边框
-//		myFrame.setContentPane(new drawText());		绘制文本--定位，字体
-		myFrame.setContentPane(new drawTextPractice());  //手动精确定位文本 如：居中 靠右等	
+		myFrame.setContentPane(new drawText());		//绘制文本--定位，字体
+//		myFrame.setContentPane(new drawTextPractice());  手动精确定位文本 如：居中 靠右等	
 		myFrame.setSize(new Dimension(700, 500));
 		myFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		myFrame.setVisible(true);

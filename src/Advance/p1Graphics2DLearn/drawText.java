@@ -49,8 +49,6 @@ class drawText extends JPanel{
 //		int leading = fontMetrics.getLeading();
 //		int ascent = fontMetrics.getAscent();
 //		int descent = fontMetrics.getDescent();
-//		
-		
 	}
 
 }
