@@ -10,7 +10,7 @@ import javax.swing.JList;
 
 import Base.Jlist.MyJList;
 
-public class MyJList2<E> extends JList<E>{
+class MyJList2<E> extends JList<E>{
 	public MyJList2() {
 		super();
 		ListenersControl();

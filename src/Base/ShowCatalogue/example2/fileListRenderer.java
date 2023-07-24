@@ -24,7 +24,7 @@ import Base.Jlist.pictureView;
  * @author ZW
  *
  */
-public class fileListRenderer  implements ListCellRenderer{
+class fileListRenderer  implements ListCellRenderer{
 	JPanel root = new JPanel();
 	JLabel name=new JLabel();
 	JLabel lastEditTime=new JLabel();

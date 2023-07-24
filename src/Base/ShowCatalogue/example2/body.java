@@ -4,7 +4,7 @@ import javax.swing.JFrame;
 
 import Base.ShowCatalogue.MyFrame;
 
-public class body {
+class body {
 
 	public static void main(String[] args) {
 		JFrame frame = new myFrame2("Swing Demo");

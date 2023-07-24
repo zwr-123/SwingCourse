@@ -3,7 +3,7 @@ package Base.ShowCatalogue.example2;
 import java.io.File;
 import java.text.SimpleDateFormat;
 
-public class FileItem {
+class FileItem {
 	public  File file;
 	public String name="";
 	public boolean isDir=false;

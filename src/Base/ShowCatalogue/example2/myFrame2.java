@@ -25,7 +25,7 @@ import javax.swing.ListSelectionModel;
 import Base.Jlist.MyJList;
 
 
-public class myFrame2 extends JFrame{
+class myFrame2 extends JFrame{
 	
 	DefaultListModel<FileItem> model=new DefaultListModel<>();
 	MyJList2<FileItem> mylist=new MyJList2<>();
@@ -150,7 +150,7 @@ public class myFrame2 extends JFrame{
 	private void openDir() {
 		// TODO Auto-generated method stub
 		JFileChooser Chooser = new JFileChooser();
-		//只显示目录
+		//只显示目录  如果没有这句话，双击选择目录后，会直接进去，而不是选中。
 		Chooser.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
 		int ret = Chooser.showOpenDialog(this);
 		if(ret==JFileChooser.APPROVE_OPTION) {
