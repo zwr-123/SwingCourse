@@ -13,7 +13,6 @@ public class body {
 		
 		// 显示窗口
 		frame.setVisible(true);
-
 	}
 
 }
